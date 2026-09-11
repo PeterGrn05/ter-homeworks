@@ -15,27 +15,28 @@ variable "folder_id" {
 }
 
 variable "default_zone" {
+  description = "Yandex Cloud availability zone"
   type        = string
   default     = "ru-central1-a"
-  description = "https://cloud.yandex.ru/docs/overview/concepts/geo-scope"
-}
-variable "default_cidr" {
-  type        = list(string)
-  default     = ["10.0.1.0/24"]
-  description = "https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
 }
 
-variable "vpc_name" {
+variable "network_name" {
+  description = "VPC network name"
   type        = string
   default     = "develop"
-  description = "VPC network&subnet name"
+}
+
+variable "subnet_cidr" {
+  description = "VPC subnet CIDR"
+  type        = string
+  default     = "10.0.1.0/24"
 }
 
 ###common vars
 
 variable "vms_ssh_root_key" {
   type        = string
-  default     = "your_ssh_ed25519_key"
+  default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN3Hy4IhTpdLMXsoPbCM+roARN0ydkQBG8P7zwquYD5Q peter14102005@gmail.com"
   description = "ssh-keygen -t ed25519"
 }
 
